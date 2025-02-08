@@ -12,7 +12,7 @@ using MyGenes.Infrastructure.Data;
 namespace MyGenes.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250208202802_InitDb")]
+    [Migration("20250208205558_InitDb")]
     partial class InitDb
     {
         /// <inheritdoc />
@@ -237,12 +237,6 @@ namespace MyGenes.Infrastructure.Migrations
                     b.Property<int>("Cholesterol")
                         .HasColumnType("int");
 
-                    b.Property<DateTimeOffset>("Created")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Fat")
                         .HasColumnType("int");
 
@@ -253,12 +247,6 @@ namespace MyGenes.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset>("LastModified")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

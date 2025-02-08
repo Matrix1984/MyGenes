@@ -11,8 +11,7 @@ namespace MyGenes.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-
+         
             migrationBuilder.CreateTable(
                 name: "Foods",
                 columns: table => new
@@ -26,26 +25,13 @@ namespace MyGenes.Infrastructure.Migrations
                     Carbohydrates = table.Column<int>(type: "int", nullable: false),
                     Sugar = table.Column<int>(type: "int", nullable: false),
                     Cholesterol = table.Column<int>(type: "int", nullable: false),
-                    FinalScore = table.Column<int>(type: "int", nullable: false),
-                    Created = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FinalScore = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Foods", x => x.Id);
                 });
-        }
-        
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-        
 
-            migrationBuilder.DropTable(
-                name: "Foods");
-
-        }
+      
     }
 }
