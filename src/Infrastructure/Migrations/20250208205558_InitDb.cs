@@ -11,7 +11,7 @@ namespace MyGenes.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-         
+
             migrationBuilder.CreateTable(
                 name: "Foods",
                 columns: table => new
@@ -32,6 +32,6 @@ namespace MyGenes.Infrastructure.Migrations
                     table.PrimaryKey("PK_Foods", x => x.Id);
                 });
 
-      
+        }
     }
 }
