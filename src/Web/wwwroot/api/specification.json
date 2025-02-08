@@ -340,10 +340,6 @@
           "cholesterol": {
             "type": "integer",
             "format": "int32"
-          },
-          "finalScore": {
-            "type": "integer",
-            "format": "int32"
           }
         }
       }

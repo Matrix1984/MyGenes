@@ -1,4 +1,5 @@
 ﻿using MyGenes.Application.Common.Interfaces;
+using MyGenes.Domain.Enums;
 
 namespace MyGenes.Application.Foods.Commands.UpdateFood;
 
@@ -23,15 +24,7 @@ public record UpdateFoodCommand : IRequest
 
     // Number between 0 to 1.
     public int Cholesterol { get; init; }
-    public int FinalScore
-    {
-        get
-        {
-            return 100 - (((int)FoodType * 40 * (Fat / 5)) +
-             Carbohydrates - (Sugar / 2 * (int)FoodType) -
-            (Cholesterol * Carbohydrates) / 10);
-        }
-    }
+   
 }
 
 public class UpdateFoodCommandHandler : IRequestHandler<UpdateFoodCommand>
@@ -68,7 +61,9 @@ public class UpdateFoodCommandHandler : IRequestHandler<UpdateFoodCommand>
 
         entity.Cholesterol = request.Cholesterol;
 
-        entity.FinalScore = request.FinalScore;
+        entity.FinalScore = 100 - (((int)request.FoodType * 40 * (request.Fat / 5)) +
+             request.Carbohydrates - (request.Sugar / 2 * (int)request.FoodType) -
+            (request.Cholesterol * request.Carbohydrates) / 10);
 
         await _context.SaveChangesAsync(cancellationToken);
     }
