@@ -20,7 +20,8 @@ public class FoodBriefDto
     {
         public Mapping()
         {
-            CreateMap<Food, FoodDto>();
+            CreateMap<Food, FoodBriefDto>(); 
+
         }
     }
 }

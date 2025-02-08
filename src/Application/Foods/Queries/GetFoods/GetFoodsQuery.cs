@@ -4,11 +4,11 @@ using MyGenes.Domain.Enums;
 namespace MyGenes.Application.Foods.Queries.GetFoods;
 public record GetFoodsQuery : IRequest<IReadOnlyCollection<FoodBriefDto>>
 {
-    public int FoodType { get; init; }
+    public int? FoodType { get; init; }
 
     public int MinScore { get; init; }
 
-    public int MaxScore { get; init; }
+    public int? MaxScore { get; init; }
 }
 
 public class GetFoodsQueryHandler : IRequestHandler<GetFoodsQuery, IReadOnlyCollection<FoodBriefDto>>
@@ -26,15 +26,15 @@ public class GetFoodsQueryHandler : IRequestHandler<GetFoodsQuery, IReadOnlyColl
     {
         var query = _context.Foods.Where(x => x.FinalScore >= request.MinScore);
 
-        if (request.MaxScore > 0)
+        if (request.MaxScore != null)
             query = query.Where(x => x.FinalScore <= request.MaxScore);
 
-        if (request.FoodType > 0)
-            query = query.Where(x => x.FoodType == (FoodType)request.FoodType);
+        if (request.FoodType != null)
+            query = query.Where(x => x.FoodType == (FoodType)request!.FoodType);
 
         return (IReadOnlyCollection<FoodBriefDto>)await query
             .OrderBy(x => x.Id)
-            .ProjectTo<IReadOnlyCollection<FoodBriefDto>>(_mapper.ConfigurationProvider)
+            .ProjectTo<FoodBriefDto>(_mapper.ConfigurationProvider)
             .ToListAsync();
     }
 }
