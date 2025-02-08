@@ -1,0 +1,35 @@
+﻿# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@Web_HostAddress = https://localhost:5001
+
+###
+
+# GET Food
+POST {{Web_HostAddress}}/api/foods/{id}   
+
+###
+
+# DELETE Users Login
+POST {{Web_HostAddress}}/api/foods/{id}
+Content-Type: application/json
+
+###
+
+# POST Create Food
+POST {{Web_HostAddress}}/api/foods
+Content-Type: application/json
+
+{
+            Name = "Test Food",
+            ImageUrl = "https://example.com/1.png",
+            FoodType = 3,
+            Fat = 1,
+            Carbohydrates = 2,
+            Sugar = 3,
+            Cholesterol = 4
+}
+
+###
+
+# GET Foods
+GET {{Web_HostAddress}}/api/foods 
+
