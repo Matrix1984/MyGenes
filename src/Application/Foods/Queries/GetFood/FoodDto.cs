@@ -14,7 +14,10 @@ public class FoodDto
 
     public int Cholesterol { get; set; }
 
-    public int FinalScore { get; set; }
+    public int FinalScore
+    {
+        get; set;
+    }
 
     private class Mapping : Profile
     {

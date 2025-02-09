@@ -10,7 +10,7 @@ public class UpdateFoodCommandValidator : AbstractValidator<UpdateFoodCommand>
 
         RuleFor(v => v.Sugar).GreaterThanOrEqualTo(0).LessThanOrEqualTo(99);
 
-        RuleFor(v => v.Cholesterol).GreaterThanOrEqualTo(0).LessThanOrEqualTo(99);
+        RuleFor(v => v.Cholesterol).GreaterThanOrEqualTo(0).LessThanOrEqualTo(1);
 
         RuleFor(v => v.Carbohydrates).GreaterThanOrEqualTo(0).LessThanOrEqualTo(99);
     }

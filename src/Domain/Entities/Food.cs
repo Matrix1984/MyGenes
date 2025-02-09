@@ -20,7 +20,7 @@ public class Food : BaseAuditableEntity
     // Number between 0 to 1.
     public int Cholesterol { get; set; }
 
-    public int FinalScore { get; set; }
+    public int FinalScore { get; set; } 
 }
 
 
