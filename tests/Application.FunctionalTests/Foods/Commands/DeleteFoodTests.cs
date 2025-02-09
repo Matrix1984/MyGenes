@@ -27,7 +27,7 @@ public class DeleteFoodTests : BaseTestFixture
             Fat = 1,
             Carbohydrates = 2,
             Sugar = 3,
-            Cholesterol = 4
+            Cholesterol = 1
         });
 
         await SendAsync(new DeleteFoodCommand(itemId));

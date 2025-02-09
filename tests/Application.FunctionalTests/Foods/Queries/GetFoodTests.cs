@@ -18,7 +18,7 @@ public class GetFoodTests : BaseTestFixture
             Fat = 1,
             Carbohydrates = 2,
             Sugar = 3,
-            Cholesterol = 4
+            Cholesterol = 1
         };
 
         var itemId = await SendAsync(command);

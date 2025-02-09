@@ -18,7 +18,7 @@ public class UpdateFoodTests : BaseTestFixture
             Fat = 1,
             Carbohydrates = 2,
             Sugar = 3,
-            Cholesterol = 4
+            Cholesterol = 1
         };
         await FluentActions.Invoking(() => SendAsync(command)).Should().ThrowAsync<NotFoundException>();
     }
@@ -35,7 +35,7 @@ public class UpdateFoodTests : BaseTestFixture
             Fat = 1,
             Carbohydrates = 2,
             Sugar = 3,
-            Cholesterol = 4
+            Cholesterol = 1
         });
 
 
@@ -48,7 +48,7 @@ public class UpdateFoodTests : BaseTestFixture
             Fat = 5,
             Carbohydrates = 6,
             Sugar = 7,
-            Cholesterol = 8
+            Cholesterol = 1
         };
 
         await SendAsync(command);
