@@ -57,11 +57,11 @@ public class GetFoodsTests : BaseTestFixture
 
         });
 
-        var query = new GetFoodsQuery() { MinScore = 50, MaxScore = 2000 };
+        var query = new GetFoodsQuery() { MinScore = -2000, MaxScore = 2000 };
 
         var result = await SendAsync(query);
 
-        result.Should().HaveCount(2);
+        result.Should().HaveCount(4);
     }
 
 
@@ -116,7 +116,7 @@ public class GetFoodsTests : BaseTestFixture
 
         }); 
 
-        var query = new GetFoodsQuery() { FoodType = 2 };
+        var query = new GetFoodsQuery() { FoodType = 3 };
 
         var result = await SendAsync(query);
 

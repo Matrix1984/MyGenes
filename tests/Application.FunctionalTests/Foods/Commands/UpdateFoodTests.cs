@@ -28,6 +28,7 @@ public class UpdateFoodTests : BaseTestFixture
     {
         var foodId = await SendAsync(new CreateFoodCommand
         {
+           
             Name = "Test Food",
             ImageUrl = "https://example.com/1.png",
             FoodType = 3,
@@ -40,9 +41,10 @@ public class UpdateFoodTests : BaseTestFixture
 
         var command = new UpdateFoodCommand
         {
+            Id = foodId,
             Name = "Test Food Updated",
             ImageUrl = "https://example.com/1-updated.png",
-            FoodType = 4,
+            FoodType = 2,
             Fat = 5,
             Carbohydrates = 6,
             Sugar = 7,
