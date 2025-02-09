@@ -16,3 +16,10 @@ dotnet watch run
 ```
 
 Navigate to https://localhost:5001. The application will automatically reload if you change any of the source files.
+
+## Build
+
+Run this command to build an image.
+
+docker build -t my-genes-app -f src/Web/Dockerfile .
+
