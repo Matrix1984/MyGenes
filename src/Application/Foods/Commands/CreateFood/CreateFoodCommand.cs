@@ -1,4 +1,5 @@
 ﻿using MyGenes.Application.Common.Interfaces;
+using MyGenes.Domain.Common;
 using MyGenes.Domain.Entities;
 using MyGenes.Domain.Enums;
 
@@ -9,6 +10,7 @@ public record CreateFoodCommand : IRequest<int>
 
     public string? ImageUrl { get; init; }
 
+    // Number between 1 to 3.
     public int FoodType { get; init; }
 
     // Number between 0 to 99.
@@ -43,14 +45,11 @@ public class CreateFoodCommandHandler : IRequestHandler<CreateFoodCommand, int>
             Fat = request.Fat,
             Carbohydrates = request.Carbohydrates,
             Sugar = request.Sugar,
-            Cholesterol = request.Cholesterol,
-
-            FinalScore = 100 - (((int)request.FoodType * 40 * (request.Fat / 5)) +
-             request.Carbohydrates - (request.Sugar / 2 * (int)request.FoodType) -
-            (request.Cholesterol * request.Carbohydrates) / 10)
-
-
+            Cholesterol = request.Cholesterol
         };
+
+        entity.FinalScore = FoodFormulaCalculator.CalculateFinalScore(entity);
+
         _context.Foods.Add(entity);
 
         await _context.SaveChangesAsync(cancellationToken);

@@ -1,4 +1,5 @@
 ﻿using MyGenes.Application.Common.Interfaces;
+using MyGenes.Domain.Common;
 using MyGenes.Domain.Enums;
 
 namespace MyGenes.Application.Foods.Commands.UpdateFood;
@@ -59,11 +60,9 @@ public class UpdateFoodCommandHandler : IRequestHandler<UpdateFoodCommand>
 
         entity.Sugar = request.Sugar;
 
-        entity.Cholesterol = request.Cholesterol;
+        entity.Cholesterol = request.Cholesterol; 
 
-        entity.FinalScore = 100 - (((int)request.FoodType * 40 * (request.Fat / 5)) +
-             request.Carbohydrates - (request.Sugar / 2 * (int)request.FoodType) -
-            (request.Cholesterol * request.Carbohydrates) / 10);
+        entity.FinalScore = FoodFormulaCalculator.CalculateFinalScore(entity);
 
         await _context.SaveChangesAsync(cancellationToken);
     }

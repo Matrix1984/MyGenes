@@ -5,6 +5,7 @@ public class Food : BaseAuditableEntity
 
     public string? ImageUrl { get; set; }
 
+    // Number between 1 to 3.
     public FoodType FoodType { get; set; }
 
     // Number between 0 to 99.
