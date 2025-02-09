@@ -48,7 +48,7 @@ public class UpdateFoodCommandHandler : IRequestHandler<UpdateFoodCommand>
 
         entity.ImageUrl = request.ImageUrl;
 
-        entity.FoodType = (Domain.Enums.FoodType)request.FoodType;
+        entity.FoodType = (FoodType)request.FoodType;
 
         entity.ImageUrl = request.ImageUrl;
 
